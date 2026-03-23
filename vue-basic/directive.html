@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- {{보간법}}, v-text/v-html : 태그사이의 텍스트로 출력  -->
+      <h2>{{message}}</h2>
+      <h2 v-text="message"></h2>
+      <h2 v-html="message2"></h2>
+
+      <!-- v-bind : 태그의 속성내의 값으로 출력, v-bind생략가능 -->
+      <input type="text" :value="message" style="background-color: yellow" />
+      <input
+        type="text"
+        v-bind:value="message"
+        style="background-color: pink"
+      />
+      <hr />
+      <img :src="imagePath" style="width: 100px; height: 100px" />
+      <hr />
+      뭐 먹고 싶어?<input
+        type="text"
+        v-model="food"
+        style="background: greenyellow"
+      />
+      <hr />
+      먹고 싶은 것은 뭐야?? <span style="background-color: aqua">{{food}}</span>
+      <hr />
+      <input type="text" v-model.number="num" /> <br />
+      입력된 수 {{num + 1}}
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let model = {
+        message: 'Hello Vue3!',
+        message2:
+          '<span style="background: lime; color: red;">나는 훌륭한 Vue개발자!</span>',
+        imagePath: 'p.png',
+        food: '아무거나',
+        num: 100,
+      };
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return model;
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

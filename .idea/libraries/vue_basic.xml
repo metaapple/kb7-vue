@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="vue-basic">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/vue-basic.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .buttonColor {
+            background-color: aqua;
+            color: black;
+        }
+
+        .buttonLayout {
+            text-align: center;
+            width: 120px;
+        }
+
+        .staticBorder {
+            border: khaki dashed 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" />
+        레이아웃 적용 여부<br />
+        <button>버튼</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        let vm = Vue.createApp( {
+            name: 'App',
+            data () {
+                return {
+                    //css를 변경하고 싶으면 속성명으로 지정
+                    myColor: 'buttonColor',
+                    myLayout: 'buttonLayout',
+                    isMyLayout: false,
+                };
+            },
+        } ).mount( '#app' );
+    </script>
+</body>
+
+</html>

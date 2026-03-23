@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue computed vs method vs watch 실무형 예제</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+      background: #f6f8fb;
+      color: #1f2937;
+    }
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    h1 { margin: 0 0 10px; font-size: 34px; }
+    .subtitle {
+      margin: 0 0 24px;
+      color: #4b5563;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .topnote {
+      margin-bottom: 18px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      line-height: 1.7;
+    }
+    .k { font-weight: 800; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
+      min-height: 690px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .computed { background: #e0f2fe; color: #075985; }
+    .method { background: #ede9fe; color: #5b21b6; }
+    .watch { background: #dcfce7; color: #166534; }
+    h2 { margin: 0 0 10px; font-size: 28px; }
+    .desc {
+      color: #4b5563;
+      line-height: 1.65;
+      min-height: 74px;
+      margin-bottom: 16px;
+    }
+    .panel {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      background: white;
+    }
+    input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 3px rgba(96,165,250,.18);
+    }
+    button {
+      border: none;
+      background: #111827;
+      color: white;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .big {
+      font-size: 30px;
+      font-weight: 900;
+      margin-top: 10px;
+    }
+    .hint {
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .status {
+      font-size: 14px;
+      color: #0f172a;
+      margin-top: 8px;
+    }
+    .loading { color: #1d4ed8; font-weight: 700; }
+    .error { color: #dc2626; font-weight: 700; }
+    .empty { color: #6b7280; }
+    .list {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+    .list li {
+      margin-bottom: 8px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      list-style-position: inside;
+    }
+    .log {
+      height: 180px;
+      overflow: auto;
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 12px;
+      border-radius: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+    .footer {
+      margin-top: 18px;
+      background: #eef2ff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: #3730a3;
+      font-weight: 700;
+    }
+    @media (max-width: 1080px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="wrap">
+    <h1>Vue 실무 구분 예제 (검색 결과 리스트 포함)</h1>
+    <p class="subtitle">
+      <span class="k">computed</span>는 계산된 값을 만들고,
+      <span class="k">method</span>는 버튼/이벤트 동작을 실행하며,
+      <span class="k">watch</span>는 값 변화에 반응해 <span class="k">debounce + 검색 결과 리스트</span>를 처리합니다.
+    </p>
+
+    <div class="topnote">
+      이번 버전에서는 watch 예제를 더 실무형으로 바꿨습니다.
+      <br>
+      검색어를 입력하면 watch가 변화를 감지하고, 잠깐 기다린 뒤 실제 검색을 수행해서 결과 리스트를 화면에 보여줍니다.
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <div class="badge computed">computed</div>
+        <h2>계산된 값</h2>
+        <div class="desc">
+          화면에 보여줄 파생 데이터를 만들 때 사용합니다.
+          x와 y가 바뀌면 합계가 자동으로 다시 계산됩니다.
+        </div>
+
+        <div class="panel">
+          <label>x 값</label>
+          <input type="number" v-model.number="x" />
+        </div>
+
+        <div class="panel">
+          <label>y 값</label>
+          <input type="number" v-model.number="y" />
+        </div>
+
+        <div class="panel">
+          <div>자동 계산 결과</div>
+          <div class="big">{{ sum }}</div>
+        </div>
+
+        <div class="hint">핵심: 보여줄 계산 결과에 적합</div>
+      </section>
+
+      <section class="card">
+        <div class="badge method">method</div>
+        <h2>동작 실행</h2>
+        <div class="desc">
+          버튼 클릭, 저장, 삭제처럼 사용자가 어떤 행동을 했을 때 실행하는 일반 함수입니다.
+        </div>
+
+        <div class="panel">
+          <div>현재 카운트</div>
+          <div class="big">{{ count }}</div>
+        </div>
+
+        <div class="panel" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button @click="increase">+1 증가</button>
+          <button @click="decrease">-1 감소</button>
+          <button @click="resetCount">초기화</button>
+        </div>
+
+        <div class="hint">핵심: 버튼 누르면 실행되는 행동에 적합</div>
+      </section>
+
+      <section class="card">
+        <div class="badge watch">watch</div>
+        <h2>변화 감지 + 검색</h2>
+        <div class="desc">
+          검색어가 바뀌면 watch가 반응하고, debounce 후 검색을 수행합니다.
+          실제 결과 리스트가 아래에 표시됩니다.
+        </div>
+
+        <div class="panel">
+          <label>검색어 입력</label>
+          <input type="text" v-model="keyword" placeholder="예: leanne, ervin, clementine" />
+          <div class="result">현재 검색어: {{ keyword || '없음' }}</div>
+          <div class="status loading" v-if="loading">검색 중...</div>
+          <div class="status error" v-else-if="error">{{ error }}</div>
+          <div class="status empty" v-else-if="keyword.trim() && !results.length">검색 결과 없음</div>
+        </div>
+
+        <div class="panel">
+          <div style="font-weight:800; margin-bottom:8px;">검색 결과 리스트</div>
+          <ul class="list" v-if="results.length">
+            <li v-for="user in results" :key="user.id">
+              <b>{{ user.name }}</b><br>
+              <span style="color:#6b7280;">{{ user.email }}</span>
+            </li>
+          </ul>
+          <div class="empty" v-else>아직 결과가 없습니다.</div>
+        </div>
+
+        <div class="panel">
+          <div style="font-weight:800; margin-bottom:8px;">watch 로그</div>
+          <div class="log">{{ logsText }}</div>
+        </div>
+
+        <div class="hint">핵심: 값이 바뀌었을 때 뒤에서 할 일을 처리할 때 적합</div>
+      </section>
+    </div>
+
+    <div class="footer">
+      요약: computed = 계산값 / method = 실행 함수 / watch = 변화 감지 + debounce + 검색 처리
+    </div>
+  </div>
+
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          x: 10,
+          y: 20,
+          count: 3,
+          keyword: "",
+          results: [],
+          loading: false,
+          error: "",
+          timerId: null,
+          logs: [
+            "[ready] 검색창에 입력하면 watch가 반응합니다."
+          ],
+          users: [
+            { id: 1, name: "Leanne Graham", email: "leanne@example.com" },
+            { id: 2, name: "Ervin Howell", email: "ervin@example.com" },
+            { id: 3, name: "Clementine Bauch", email: "clementine@example.com" },
+            { id: 4, name: "Patricia Lebsack", email: "patricia@example.com" },
+            { id: 5, name: "Chelsey Dietrich", email: "chelsey@example.com" },
+            { id: 6, name: "Mrs. Dennis Schulist", email: "dennis@example.com" },
+            { id: 7, name: "Kurtis Weissnat", email: "kurtis@example.com" },
+            { id: 8, name: "Nicholas Runolfsdottir", email: "nicholas@example.com" },
+            { id: 9, name: "Glenna Reichert", email: "glenna@example.com" },
+            { id: 10, name: "Clementina DuBuque", email: "clementina@example.com" }
+          ]
+        }
+      },
+      computed: {
+        sum() {
+          const result = Number(this.x) + Number(this.y)
+          return isNaN(result) ? 0 : result
+        },
+        logsText() {
+          return this.logs.join("\n")
+        }
+      },
+      methods: {
+        increase() {
+          this.count++
+        },
+        decrease() {
+          this.count--
+        },
+        resetCount() {
+          this.count = 0
+        },
+        searchUsers(keyword) {
+          this.loading = true
+          this.error = ""
+
+          this.logs.unshift("[api] '" + keyword + "' 검색 요청 실행")
+          this.logs = this.logs.slice(0, 10)
+
+          setTimeout(() => {
+            try {
+              const lower = keyword.toLowerCase()
+              this.results = this.users.filter(user =>
+                user.name.toLowerCase().includes(lower) ||
+                user.email.toLowerCase().includes(lower)
+              )
+              this.logs.unshift("[done] 결과 " + this.results.length + "건")
+              this.logs = this.logs.slice(0, 10)
+            } catch (e) {
+              this.error = "검색 중 오류가 발생했습니다."
+              this.results = []
+            } finally {
+              this.loading = false
+            }
+          }, 500)
+        }
+      },
+      watch: {
+        keyword(newValue) {
+          this.logs.unshift("[watch] keyword 변경 → " + (newValue || "(빈값)"))
+          this.logs = this.logs.slice(0, 10)
+
+          clearTimeout(this.timerId)
+
+          const text = newValue.trim()
+
+          if (!text) {
+            this.results = []
+            this.loading = false
+            this.error = ""
+            return
+          }
+
+          if (text.length < 2) {
+            this.results = []
+            this.loading = false
+            this.error = ""
+            this.logs.unshift("[skip] 2글자 이상부터 검색")
+            this.logs = this.logs.slice(0, 10)
+            return
+          }
+
+          this.timerId = setTimeout(() => {
+            this.searchUsers(text)
+          }, 400)
+        }
+      }
+    }).mount("#app")
+  </script>
+</body>
+</html>

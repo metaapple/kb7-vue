@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //document.getElementById("app")
+      //함수가 아닌 경우
+      //dom tree에 있는 요소를 가지고 와서 처리하는 부분이
+      //head에 있으면 아직 dom tree가 만들어지지 않았으므로
+      //인식못함.
+      //--> 스크립트를 body안에 넣어주자.
+    </script>
+  </head>
+  <body>
+    <!-- 하나의 컴포넌트는 mvvm방식으로 코드  -->
+    <!-- view : 보여지는 부분, html태그 부분, 보통 div태그를 많이 씀. -->
+    <!-- 모델에 있는 데이터를 
+      1. html태그 사이에 넣을 수도 있고
+      2. html태그안의 속성의 값으로도 넣을 수 있음
+      어디에 출력할지 Vue에 지시하자.(지시자, 디렉티브)
+     -->
+    <div id="app">
+      <h1>고정된 화면의 제목은 그대로 view에 넣어버림.</h1>
+      <h2 v-text="message"></h2>
+      <h2 v-html="message2"></h2>
+    </div>
+    <!-- 브라우저에 없는 js기능(라이브러리)을 쓰고 싶으면 외부에 있는 파일을 연결해라  -->
+    <script src="out.js"></script>
+    <!-- 외부에 연결할 js가 인터넷 다른 주소와 연결하는 경우
+        content delivery network(CDN)
+    -->
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      // model은 변경된 것을 체크할 데이터를 표현하는 부분
+      // 객체리터럴{속성명(키):값, 속성명:값, ....}로 쓰자.
+      let model = {
+        message: 'Hello!! Vue3!!!',
+        message2:
+          '<span style="background: lime; color: red;">나는 훌륭한 Vue개발자!</span>',
+        name: '홍길동',
+        age: 100,
+        hobby: ['러닝', '코딩'],
+        coffee: true,
+        tour: { 국내: '대전', 국외: '일본' },
+      };
+
+      //   선정된 모델 데이터의 변화를 체크하여 처리하고 싶은 부분을 vm부분에 코드
+      // Vue
+      // data()함수는 model로 리턴한 것만 가상dom에서 변화가 되었는지 체크함.
+      // mount()함수는 데이터가 변화가 된 경우 어떤 view부분을 바꾸어 출력해야되는지 연결해주어야함.
+      // 데이터가 변화되었을 때 출력하는 부분과 연결하는 역할
+      Vue.createApp({
+        name: 'App',
+        data() {
+          return model;
+        },
+      }).mount('#app');
+      //   hi();
+    </script>
+  </body>
+</html>

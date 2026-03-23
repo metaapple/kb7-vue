@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>오늘은 목요일!!</h1>
+      <h2>{{message}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let model = { message: 'Hello Vue3!' };
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return model;
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
