@@ -4,18 +4,13 @@
 
     <hr />
     <ul>
-      <CheckboxItem
-        v-for="idol in idols"
-        :key="idol.id"
-        :name="idol.name"
-        :checked="idol.checked"
-      />
+      <CheckboxItem v-for="idol in idols" :key="idol.id" :idol="idol" />
     </ul>
   </div>
 </template>
 
 <script>
-import CheckboxItem from './components/CheckboxItem.vue';
+import CheckboxItem from './components/CheckboxItem2.vue';
 
 export default {
   name: 'App',
