@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 개발자가 선언한 함수 (사용자 정의 함수, user-defined)
+      function rec() {
+        //1. 입력(데이터 가지고 오기)
+        //가로값 가지고 오기
+        let n1 = document.getElementById('n1').value;
+        //input태그에서 value속성값만 가지고 와라, 100
+        //세로값 가지고 오기
+        let n2 = document.getElementById('n2').value; //200
+        //2. 처리
+        //면적 계산하기
+        let n11 = parseInt(n1); //parseFloat() 실수로 변경하고자 할 때
+        let n22 = parseInt(n2);
+        let result = n11 * n22;
+        //3. 출력
+        alert('사각형의 면적 결과 : ' + result);
+
+        //js코드에서 직접 변수에 값을 넣을 때는 문자/숫자 구분해서 넣을 수 있음.
+        let age = 100; //숫자로 인식
+        let age2 = '100세'; //문자로 인식
+        //브라우저의 input에서 입력한 value값은 모두 "문자"로 취급함.
+        //문자로 처리할지, 숫자로 변경해서 처리할지는 프로그래머가 결정함.
+      }
+    </script>
+  </head>
+  <body>
+    <span style="color: blue">가로값</span> :
+    <input type="text" id="n1" />
+    <br />
+    세로값 : <input type="text" id="n2" /> <br />
+    <!-- 이미 브라우저에 들어있는 함수 (내장된 함수, built-in) -->
+    <!-- <button
+      style="background: yellow; color: red"
+      onclick="alert('버튼 클릭 했군!')"
+    > -->
+    <button style="background: yellow; color: red" onclick="rec()">
+      사각형의 면적 구하기
+    </button>
+  </body>
+</html>

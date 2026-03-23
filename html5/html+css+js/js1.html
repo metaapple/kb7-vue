@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 자바스크립트 주석, 한줄 짜리
+      /*
+        자바스크립트 주석, 여러줄 짜리
+        여러줄 설명을 쓸 수 있음.
+      */
+      //  램에 저장공간인 변수를 만들어봅시다.
+      var age = 100; // = 대입(할당) 연산자(기호라는 의미)
+      age = 200; // ; --> 생략가능하지만 실무에서는 사용하도록 권장함.
+      age = 'young';
+      //js는 변수에 데이터타입(유형)이 고정되지 않고, 아무 타입이나 넣어도 됨.
+      //할당할 수 있는 데이터타입이 동적이다(변한다.).!! --> 동적할당
+
+      // var는 생략 가능함.
+      tel = '010123234';
+      post = '07312';
+      //숫자를 '따옴표'없이 사용하는 경우에는 자릿수가 의미가 있거나 계산할 목적이 있어야함.
+      weight = 99.9; // 숫자로 계산하고, 비교할 때는 따옴표빼고 써줌.
+      // 소숫점들어간 숫자를 실수(float)
+      height = 185.3; // 실수
+      age = 100; //소숫점안들어간 숫자를 정수(integer)
+      name = '국민이';
+      food = true; //false(틀려요. 거짓말이예요.) 맞다/틀리다를 써야할 때 사용함.
+      //boolean(bool, 부울, 불)
+      //프로그래밍할 때 제일 많이 쓰는 데이터의 유형 4가지
+      //정수, 실수, 문자, bool(논리형)
+      //자바스크립트는 브라우저에서 실행됨.
+      //브라우저의 각 부분을 나타내는 부품(객체)이 따로 있음.
+      //브라우저 전체 부품 --> window(생략가능)
+      //브라우저 body --> document
+      //브라우저 f12 console --> console
+      alert('조심해! 점심시간이야!'); //브라우저위에 조그마한 창을 띄우는 기능을 가진 명령어(function, 함수)
+      alert(age);
+      alert(name);
+      alert(name + ' ' + food + '야'); // + 연결연산자 역할
+      result = 'no';
+
+      //f12(개발자 도구)의 콘솔에서 개발자들은 값을 확인 많이 함.
+      //해당하는 부품 사용하면 됨.
+      //js코드에서 console이라고 치면 f12의 console로 인식함.
+      console.log('콘솔은 개발할 때 정말 써요.');
+      console.log('콘솔은 개발할 때 정말 써요.');
+      //콘솔을 보려면 반드시 f12를 눌러줘야 함.
+
+      //document라고 js코드에서 쓰면 body태그로 인식함.
+      document.write('나는 body안에 써줘요.!!!!');
+    </script>
+  </head>
+  <body>
+    <button style="background: yellow">나를 눌러봐.</button>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function add(x, y) {
+        // 입력값 2개 주면서 add이름의 함수를 호출(사용)했을 때
+        // 어떤 것들을 처리할지 여러줄을 넣어줌.(기능 정의)
+        alert(x + y);
+        return x + y;
+      }
+
+      let result = add(111, 222); //333
+      //더한 결과를 다른 연산할 때 사용하고 싶은 경우
+      //더한 결과값 * 할인율
+      alert('할인하는 금액은 ' + result * 0.2);
+
+      alert('할인하는 금액은 ' + add(111, 222) * 0.2);
+    </script>
+  </head>
+  <body></body>
+</html>
