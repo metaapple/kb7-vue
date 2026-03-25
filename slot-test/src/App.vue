@@ -1,13 +1,31 @@
 <template>
-  <div><NoSlotTest /> <SlotTest /> <NamedSlotTest /></div>
+  <div>
+    <NoSlotTest />
+
+    <br />
+    <hr />
+    <br />
+    <SlotTest />
+
+    <br />
+    <hr />
+    <br />
+    <NamedSlotTest />
+
+    <br />
+    <hr />
+    <br />
+    <ScopedSlotTest />
+  </div>
 </template>
 <script>
 import NoSlotTest from './components/NoSlotTest.vue';
 import SlotTest from './components/SlotTest.vue';
 import NamedSlotTest from './components/NamedSlotTest.vue';
+import ScopedSlotTest from './components/ScopedSlotTest.vue';
 
 export default {
   name: 'App',
-  components: { NoSlotTest, SlotTest, NamedSlotTest },
+  components: { NoSlotTest, SlotTest, NamedSlotTest, ScopedSlotTest },
 };
 </script>

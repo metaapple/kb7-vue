@@ -9,10 +9,9 @@
     <slot>Item</slot>
   </div>
 </template>
-
 <script>
 export default {
-  name: 'CheckBox1',
-  props: ['id', 'checked', 'label'],
+  name: 'CheckBox2',
+  props: ['id', 'checked'],
 };
 </script>

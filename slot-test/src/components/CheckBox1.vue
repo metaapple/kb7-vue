@@ -15,7 +15,6 @@
     <span v-else style="color: gray">{{ label }}</span>
   </div>
 </template>
-
 <script>
 export default {
   name: 'CheckBox1',

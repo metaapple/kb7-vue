@@ -9,16 +9,19 @@
       :checked="item.checked"
       @check-changed="CheckBoxChanged"
     >
-      <span v-if="item.checked" style="color: red; text-decoration: underline">
+      <span
+        v-if="item.checked === true"
+        style="color: blue; text-decoration: underline"
+      >
         <i>{{ item.label }}</i>
       </span>
-      <span v-else style="color: lime">{{ item.label }}</span>
+      <span v-else style="color: gray">{{ item.label }}</span>
     </CheckBox2>
   </div>
 </template>
-
 <script>
 import CheckBox2 from './CheckBox2.vue';
+
 export default {
   name: 'SlotTest',
   components: { CheckBox2 },
