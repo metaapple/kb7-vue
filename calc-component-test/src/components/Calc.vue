@@ -109,6 +109,8 @@ export default {
     const y = ref(20);
     const result = ref(30);
 
+    //setup내 함수는 화살표함수를 더 쓰는 것이 일반적
+    //return하기 위해서는 이름이 필요하므로 변수에 넣어줌.
     const calcAdd = () => {
       result.value = x.value + y.value;
     };

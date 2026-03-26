@@ -16,25 +16,26 @@
   </div>
 </template>
 <script>
+import { reactive, onMounted } from 'vue';
 import TodoList from './components/TodoList.vue';
 import InputTodo from './components/InputTodo.vue';
 
 let ts = new Date().getTime();
+
 export default {
   name: 'App',
   components: { InputTodo, TodoList },
-  data() {
-    return {
+
+  setup() {
+    const state = reactive({
       todoList: [
         { id: ts, todo: '자전거 타기', completed: false },
         { id: ts + 1, todo: '딸과 공원 산책', completed: true },
         { id: ts + 2, todo: '일요일 애견 카페', completed: false },
         { id: ts + 3, todo: 'Vue 원고 집필', completed: false },
-      ],
-    };
-  },
-  methods: {
-    addTodo(todo) {
+      ]});
+
+    const addTodo = (addTodo) => {
       console.log('addTodo 호출됨.');
 
       if (todo.length >= 2) {
@@ -44,15 +45,19 @@ export default {
           completed: false,
         });
       }
-    },
-    deleteTodo(id) {
+    }; //addTodo end
+
+    const deleteTodo(id) {
       let index = this.todoList.findIndex((item) => id === item.id);
       this.todoList.splice(index, 1);
-    },
+    } //deleteTodo end
+
     toggleCompleted(id) {
       let index = this.todoList.findIndex((item) => id === item.id);
       this.todoList[index].completed = !this.todoList[index].completed;
-    },
-  },
-};
+    } //toggleCompleted end
+
+    return {state, addTodo, deleteTodo, toggleCompleted};
+  }
+}
 </script>
