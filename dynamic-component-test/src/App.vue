@@ -1,4 +1,12 @@
 <template>
+  <div class="container">
+    <button @click="changeModal">Teleport를 이용한 Modal 기능</button>
+    <teleport to="#modal">
+      <Modal v-if="isModal" />
+    </teleport>
+  </div>
+  <br /><br /><br />
+  <hr />
   <div class="header">
     <h1 class="headerText">태평양 전쟁의 해전</h1>
     <nav>
@@ -26,10 +34,11 @@
 import CoralSeaTab from './components/CoralSeaTab.vue';
 import LeyteGulfTab from './components/LeyteGulfTab.vue';
 import MidwayTab from './components/MidwayTab.vue';
+import Modal from './components/Modal.vue';
 
 export default {
   name: 'App',
-  components: { CoralSeaTab, LeyteGulfTab, MidwayTab },
+  components: { CoralSeaTab, LeyteGulfTab, MidwayTab, Modal },
   data() {
     return {
       currentTab: 'CoralSeaTab',
@@ -38,11 +47,18 @@ export default {
         { id: 'MidwayTab', label: '미드웨이 해전' },
         { id: 'LeyteGulfTab', label: '레이테만 해전' },
       ],
+      isModal: false,
     };
   },
   methods: {
     changeTab(tab) {
       this.currentTab = tab;
+    },
+    changeModal() {
+      this.isModal = true;
+      setTimeout(() => {
+        this.isModal = false;
+      }, 2000);
     },
   },
 };
