@@ -3,11 +3,14 @@
     <Calc />
   </div>
 </template>
-<script setup>
+
+<script>
 import Calc from './components/Calc.vue';
 
-// export default {
-//   name: 'App',
-//   components: { Calc },
-// };
+export default {
+  name: 'App',
+  components: { Calc },
+};
 </script>
+
+<style></style>
