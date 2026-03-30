@@ -12,3 +12,4 @@ wait3초((결과) => {
   console.log(결과);
 });
 console.log('다음 코드');
+console.log('다음 코드');
