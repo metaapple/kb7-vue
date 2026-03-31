@@ -7,6 +7,16 @@ import Videos from '@/pages/Videos.vue'
 import MemberInfo from '@/pages/MemberInfo.vue'
 import VideoPlayer   from "@/pages/VideoPlayer.vue";
 
+// const router = createRouter({
+//     history: createWebHistory(),
+//     routes : [
+//         { path: '/', component: Home },
+//         { path: '/about', component: About },
+//         { path: '/members', component: Members },
+//         { path: '/videos', component: Videos },
+//     ]
+// })
+
 const router = createRouter({
     history: createWebHistory(),
     routes : [

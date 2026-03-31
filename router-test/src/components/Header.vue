@@ -11,6 +11,8 @@ export default {
             : 'collapse navbar-collapse'
     );
 
+    // isNavShow값이 true이면 class "show"적용
+    // isNavShow값이 false이면 class "show" 미적용
     const changeIsNavShow = () => { state.isNavShow = !state.isNavShow; };
 
     return { state, changeIsNavShow, navClass };
@@ -46,6 +48,24 @@ export default {
         </li>
       </ul>
     </div>
+
+<!--    <div :class="navClass">-->
+<!--      <ul class="navbar-nav">-->
+<!--        <li class="nav-item">-->
+<!--          <router-link class="nav-link" :to="/">홈</router-link>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <router-link class="nav-link" :to="/about">소개</router-link>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <router-link class="nav-link" :to="/members">멤버</router-link>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <router-link class="nav-link" :to="/videos">영상</router-link>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>  -->
+
   </nav>
 
 </template>
