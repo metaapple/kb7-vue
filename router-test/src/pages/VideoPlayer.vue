@@ -80,16 +80,50 @@ export default {
 
     // (22) 다음 영상 재생
     const playNext = () => {
-      const index = videos.findIndex((v)=>v.id === videoInfo.video.id);
-      const nextVideo = videos[index+1];
+      // 1) videos 배열에서
+      //    "현재 재생 중인 영상(videoInfo.video)"의 위치(index)를 찾는다.
+      //    예:
+      //    videos = [a, b, c]
+      //    현재 영상이 b면 index는 1이 된다.
+      const index = videos.findIndex((v) => v.id === videoInfo.video.id);
+
+      // 2) 현재 index의 바로 다음 위치(index + 1)에 있는 영상을 꺼낸다.
+      //    예:
+      //    현재 index가 1이면 videos[2]를 가져온다.
+      //    즉, 다음 영상이 있으면 nextVideo에 저장된다.
+      const nextVideo = videos[index + 1];
+
+      // 3) 다음 영상이 실제로 존재하는지 확인한다.
+      //    - 현재 영상이 마지막 영상이 아니면 nextVideo가 존재한다.
+      //    - 마지막 영상이면 nextVideo는 undefined가 된다.
       if (nextVideo) {
+        // 4) 현재 화면에 표시되는 영상 정보를
+        //    다음 영상 객체로 교체한다.
+        //    reactive 객체이므로 템플릿도 자동 갱신된다.
+        //    즉, 제목 / 카테고리 / videoid 값이 모두 다음 영상 기준으로 바뀐다.
         videoInfo.video = nextVideo;
-        router.push({ name:'videos/id', params: { id: nextVideo.id } });
+
+        // 5) 주소(URL)도 다음 영상 id에 맞게 변경한다.
+        //    예: /videos/현재id  ->  /videos/다음id
+        //    이렇게 해야 브라우저 주소와 실제 재생 영상 정보가 일치한다.
+        router.push({
+          name: 'videos/id',
+          params: { id: nextVideo.id }
+        });
       } else {
+        // 6) 만약 현재 영상이 마지막 영상이라면
+        //    "다음 영상"이 없으므로 첫 번째 영상으로 다시 이동한다.
+        //    즉, 재생목록을 순환(loop)하도록 만든 코드이다.
         videoInfo.video = videos[0];
-        router.push({ name:'videos/id', params: { id: videos[0].id } });
+
+        // 7) 라우터 주소도 첫 번째 영상의 id로 변경한다.
+        router.push({
+          name: 'videos/id',
+          params: { id: videos[0].id }
+        });
       }
     }
+
     const playPrev = () => {
       const index = videos.findIndex((v)=>v.id === videoInfo.video.id);
       const prevVideo = videos[index-1];
