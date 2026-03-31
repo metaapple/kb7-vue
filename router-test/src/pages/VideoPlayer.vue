@@ -71,6 +71,7 @@ export default {
     let videoInfo =
         reactive({ video: videos.find((v)=>v.id === currentRoute.params.id) });
 
+
     // (21) 영상 정지 + 리스트 페이지로 이동
     const stopVideo = () => {
       playerRef.value.player.stopVideo();
