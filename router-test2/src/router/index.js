@@ -3,6 +3,7 @@ import Home from '@/pages/Home.vue';
 import About from '@/pages/About.vue';
 import Members from '@/pages/Members.vue';
 import Videos from '@/pages/Videos.vue';
+import MemberInfo from '@/pages/MemberInfo.vue';
 // 컴포넌트가 있는 것만 import가능, 없는 것을 지정하면 실행 에러!!!
 
 const router = createRouter({
@@ -23,6 +24,11 @@ const router = createRouter({
       path: '/members',
       name: 'members',
       component: Members,
+    },
+    {
+      path: '/members/:id',
+      name: 'members/id',
+      component: MemberInfo,
     },
     {
       path: '/videos',

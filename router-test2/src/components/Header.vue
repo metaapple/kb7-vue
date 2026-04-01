@@ -56,12 +56,14 @@ export default {
     //     ? 'collapse navbar-collapse show'
     //     : 'collapse navbar-collapse';
     // });
+    // () => {} : {}는 실행하는 코드가 1줄일때는 안써도 됨.
+    // return이 있는 경우는 {}일때는 반드시 명시해야하고, {}생략한 경우 return 생략 가능
 
-    const navClass = computed(() => {
+    const navClass = computed(() =>
       state.isNavShow
         ? 'collapse navbar-collapse show'
-        : 'collapse navbar-collapse';
-    });
+        : 'collapse navbar-collapse',
+    );
 
     //3.
     //삼선무늬를 눌렀을 때 상태값을 변경해주는 메서드를 하나 만들자.
@@ -70,7 +72,7 @@ export default {
       //누를 때마다 두 개의값이 변경하는 경우 (toggle기능)
       //! --> not의 의미(반대의 의미)
     };
-    return { state, changeIsNavShow, navClass };
+    return { state, navClass, changeIsNavShow };
   },
 };
 </script>
