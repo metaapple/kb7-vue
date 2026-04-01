@@ -34,6 +34,9 @@
 
 <img width="1109" height="629" alt="스크린샷 2026-03-31 20 37 17" src="https://github.com/user-attachments/assets/938f4b83-f0ab-46ee-a3d1-00c00c4cd8c8" />
 
+<img width="2195" height="628" alt="image" src="https://github.com/user-attachments/assets/80c2cf47-4d4a-44a6-a2c3-10f5e2f0fc19" />
+
+
 
 
 
