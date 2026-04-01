@@ -46,24 +46,6 @@
 
 
 
-<img width="2314" height="551" alt="image" src="https://github.com/user-attachments/assets/637113eb-4f34-49d9-b0f5-6e7acb6d6c55" />
-
-<img width="1553" height="532" alt="image" src="https://github.com/user-attachments/assets/83ebd280-e72c-4a31-be7a-4d0d48fbd8db" />
-
-<img width="2408" height="908" alt="image" src="https://github.com/user-attachments/assets/87779d70-affc-41cd-a9ec-d9d1edcc82d4" />
-
-
-- axios버전
-<img width="1299" height="503" alt="image" src="https://github.com/user-attachments/assets/09997227-5bd7-4bc0-9424-d5ded7fa1335" />
-
-
-
-
-
-
-
-
-
 
 
 
