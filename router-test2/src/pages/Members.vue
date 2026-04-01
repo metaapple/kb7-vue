@@ -11,7 +11,9 @@
           v-for="m in members"
           :key="m.id"
         >
-          <router-link to=""> {{ m.id }} - {{ m.name }} </router-link>
+          <router-link :to="'/members/' + m.id">
+            {{ m.id }} - {{ m.name }}
+          </router-link>
         </div>
       </div>
     </div>
