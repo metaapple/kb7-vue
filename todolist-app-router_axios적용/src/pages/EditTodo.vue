@@ -61,7 +61,7 @@ const { updateTodo } = inject('actions');
 console.log(todoList);
 
 const matchedTodoItem = todoList.value.find(
-  (item) => item.id === parseInt(currentRoute.params.id),
+  (item) => item.id == parseInt(currentRoute.params.id),
 );
 if (!matchedTodoItem) {
   router.push('/todos');

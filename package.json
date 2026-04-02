@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "vue-csspin": "^0.1.12",
     "youtube-vue3": "^0.1.15"
   }
 }
