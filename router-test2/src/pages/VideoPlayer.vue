@@ -11,6 +11,20 @@
          :controls="1"
         ></YoutubeVue3>
       </div>
+
+            <!-- (12) 컨트롤 버튼 영역 -->
+      <div>
+        <div>
+          <!-- (13) 이전 영상 -->
+          <i class="fa fa-backward ml-2 pointer" @click="playPrev"></i>
+
+          <!-- (14) 정지 -->
+          <i class="fa fa-stop ml-2 pointer" @click="stopVideo"></i>
+
+          <!-- (15) 다음 영상 -->
+          <i class="fa fa-forward ml-2 pointer" @click="playNext"></i>
+        </div>
+      </div>
     </div>
   </div>
 
