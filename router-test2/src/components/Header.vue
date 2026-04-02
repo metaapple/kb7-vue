@@ -19,7 +19,7 @@
           <router-link class="nav-link" to="/members">멤버</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/videos">영상</router-link>
+          <router-link class="nav-link" to="/songs">영상</router-link>
         </li>
       </ul>
     </div>
