@@ -56,9 +56,7 @@ const addTodo = async ({ todo, desc }) => {
     const response = await axios.post(BASEURI, payload);
     //created ok일 때, 201 status값 받음.
     if (response.status === 201) {
-      //states.todoList.push(payload);
       await fetchTodoList();
-      // router.push('/todos');
     } else {
       alert('Todo 추가 실패');
     }
@@ -75,10 +73,7 @@ const updateTodo = async ({ id, todo, desc, done }) => {
     let payload = { id, todo, desc, done };
     const response = await axios.put(BASEURI + '/' + id, payload);
     if (response.status === 200) {
-      // let index = states.todoList.findIndex((todo) => todo.id === id);
-      // states.todoList[index] = { id, todo, desc, done };
       await fetchTodoList();
-      // router.push('/todos');
     } else {
       alert('Todo 수정 실패');
     }
@@ -90,12 +85,9 @@ const updateTodo = async ({ id, todo, desc, done }) => {
 
 const deleteTodo = async (id) => {
   states.isLoading = true;
-
   try {
     const response = await axios.delete(BASEURI + '/' + id);
     if (response.status === 200) {
-      // let index = states.todoList.findIndex((todo) => todo.id === id);
-      // states.todoList.splice(index, 1);
       await fetchTodoList();
       router.push('/todos');
     } else {
