@@ -46,6 +46,7 @@ const addTodo = async ({ todo, desc }) => {
       done: false,
     };
     const response = await axios.post(BASEURI, payload);
+    //created ok일 때, 201 status값 받음.
     if (response.status === 201) {
       states.todoList.push(payload);
       router.push('/todos');
@@ -57,13 +58,34 @@ const addTodo = async ({ todo, desc }) => {
   }
 };
 
-const updateTodo = ({ id, todo, desc, done }) => {
-  let index = states.todoList.findIndex((todo) => todo.id === id);
-  states.todoList[index] = { id, todo, desc, done };
+const updateTodo = async ({ id, todo, desc, done }) => {
+  try {
+    let payload = { id, todo, desc, done };
+    const response = await axios.put(BASEURI + '/' + id, payload);
+    if (response.status === 200) {
+      let index = states.todoList.findIndex((todo) => todo.id === id);
+      states.todoList[index] = { id, todo, desc, done };
+      router.push('/todos');
+    } else {
+      alert('Todo 수정 실패');
+    }
+  } catch (error) {
+    alert('에러발생 :' + error);
+  }
 };
-const deleteTodo = (id) => {
-  let index = states.todoList.findIndex((todo) => todo.id === id);
-  states.todoList.splice(index, 1);
+const deleteTodo = async (id) => {
+  try {
+    const response = await axios.delete(BASEURI + '/' + id);
+    if (response.status === 200) {
+      let index = states.todoList.findIndex((todo) => todo.id === id);
+      states.todoList.splice(index, 1);
+      router.push('/todos');
+    } else {
+      alert('Todo 삭제 실패');
+    }
+  } catch (error) {
+    alert('에러발생 :' + error);
+  }
 };
 const toggleDone = (id) => {
   let index = states.todoList.findIndex((todo) => todo.id === id);
