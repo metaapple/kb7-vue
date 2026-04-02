@@ -21,7 +21,7 @@ const addTodo = ({ todo, desc }) => {
 };
 const updateTodo = ({ id, todo, desc, done }) => {
   let index = states.todoList.findIndex((todo) => todo.id === id);
-  states.todoList[index] = { ...states.todoList[index], todo, desc, done };
+  states.todoList[index] = { id, todo, desc, done };
 };
 const deleteTodo = (id) => {
   let index = states.todoList.findIndex((todo) => todo.id === id);

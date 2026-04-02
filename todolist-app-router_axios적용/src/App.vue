@@ -7,21 +7,59 @@
 <script setup>
 import { reactive, computed, provide } from 'vue';
 import Header from '@/components/Header.vue';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
 
+//해당 컴포넌트가 시작할 때 이 데이터를 axios로 받아와 채워놓자.
+//json데이터를 가지고 있는 백엔드 서버에서 받아와 todoList에 넣어야하므로 처음에는 비워둔다.
 const states = reactive({
-  todoList: [
-    { id: 1, todo: 'ES6학습', desc: '설명1', done: false },
-    { id: 2, todo: 'React학습', desc: '설명2', done: false },
-    { id: 3, todo: 'ContextAPI 학습', desc: '설명3', done: true },
-    { id: 4, todo: '야구경기 관람', desc: '설명4', done: false },
-  ],
+  todoList: [],
 });
-const addTodo = ({ todo, desc }) => {
-  states.todoList.push({ id: new Date().getTime(), todo, desc, done: false });
+
+const BASEURI = '/api/todos';
+const router = useRouter();
+
+//컴포넌트 시작시 axios로 받아와 todoList를 채워넣는 메서드
+//TodoList 목록을 조회합니다
+
+const fetchTodoList = async () => {
+  try {
+    const response = await axios.get(BASEURI);
+    if (response.status === 200) {
+      states.todoList = response.data;
+    } else {
+      alert('데이터 조회 실패');
+    }
+  } catch (error) {
+    alert('에러발생 :' + error);
+  }
 };
+
+fetchTodoList();
+
+const addTodo = async ({ todo, desc }) => {
+  try {
+    let payload = {
+      id: new Date().getTime(),
+      todo,
+      desc,
+      done: false,
+    };
+    const response = await axios.post(BASEURI, payload);
+    if (response.status === 201) {
+      states.todoList.push(payload);
+      router.push('/todos');
+    } else {
+      alert('Todo 추가 실패');
+    }
+  } catch (error) {
+    alert('에러발생 :' + error);
+  }
+};
+
 const updateTodo = ({ id, todo, desc, done }) => {
   let index = states.todoList.findIndex((todo) => todo.id === id);
-  states.todoList[index] = { ...states.todoList[index], todo, desc, done };
+  states.todoList[index] = { id, todo, desc, done };
 };
 const deleteTodo = (id) => {
   let index = states.todoList.findIndex((todo) => todo.id === id);
