@@ -17,6 +17,14 @@
 <img width="2254" height="1280" alt="image" src="https://github.com/user-attachments/assets/5afce077-4ef3-4d5b-a794-cd1fd6cb5eb0" />
 <img width="2253" height="1272" alt="image" src="https://github.com/user-attachments/assets/2be90b43-130e-41ba-9d84-6e679f3f2780" />
 
+<img width="2588" height="1430" alt="image" src="https://github.com/user-attachments/assets/7755ce8f-0fc3-4d5e-b221-677af84f9876" />
+<img width="2568" height="1455" alt="image" src="https://github.com/user-attachments/assets/378f9865-fa4c-4718-95c9-2d28d2132ad5" />
+<img width="2581" height="1452" alt="image" src="https://github.com/user-attachments/assets/8ad38c71-7a18-445e-b77d-1dc913d58cc5" />
+- 이미지 넣는 방법
+<img width="2562" height="1226" alt="image" src="https://github.com/user-attachments/assets/91d40e2b-b071-481f-8e88-7255d4ed8932" />
+<img width="1167" height="1591" alt="image" src="https://github.com/user-attachments/assets/09aa1d11-de72-43ab-be0f-eae33ef42d4b" />
+
+
 
 ☑️cross-origin
 <img width="2268" height="1279" alt="image" src="https://github.com/user-attachments/assets/19e207de-d745-406b-bc48-abf98a02c31d" />
