@@ -101,15 +101,15 @@ export const useTodoListStore = defineStore('todoList', () => {
     states.isLoading = false;
   };
 
+  ////////////////////////////////////////////
   const toggleDone = async (id) => {
     try {
       let todo = states.todoList.find((todo) => todo.id === id);
-      let index = states.todoList.findIndex((todo) => todo.id === id);
       todo.done = !todo.done;
       const payload = todo;
       const response = await axios.put(BASEURI + '/' + id, payload);
       if (response.status == 200) {
-        states.todoList[index] = todo;
+        await fetchTodoList();
       } else {
         alert('토글 변경 수행 중 에러 발생함.');
       }
@@ -117,6 +117,7 @@ export const useTodoListStore = defineStore('todoList', () => {
       alert('토글 변경 수행 중 예상치 못했던 에러 발생함. ');
     }
   };
+  ////////////////////////////////////////////
 
   return { states, fetchTodoList, addTodo, updateTodo, deleteTodo, toggleDone };
 });

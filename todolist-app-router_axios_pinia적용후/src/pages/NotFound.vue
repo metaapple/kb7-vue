@@ -2,6 +2,7 @@
   <div class="m-3">
     <h3>존재하지 않는 경로</h3>
     <p>요청 경로 : {{ currentRoute.path }}</p>
+    <img src="@/assets/p.png" alt="" />
   </div>
 </template>
 <script setup>

@@ -52,17 +52,22 @@
 import { inject, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
+///////////////////////////////////////////////////////////
+import { useTodoListStore } from '@/stores/todoList.js';
+const todoListStore = useTodoListStore();
+
 const router = useRouter();
 const currentRoute = useRoute();
 
-// const todoList = inject('todoList');
-// const { updateTodo } = inject('actions');
+const todoList = todoListStore.states.todoList;
 
 console.log(todoList);
 
-const matchedTodoItem = todoList.value.find(
+const matchedTodoItem = todoList.find(
   (item) => item.id == parseInt(currentRoute.params.id),
 );
+///////////////////////////////////////////////////////////
+
 if (!matchedTodoItem) {
   router.push('/todos');
 }
@@ -77,7 +82,9 @@ const updateTodoHandler = () => {
     alert('할일은 반드시 입력해야 합니다');
     return;
   }
-  // updateTodo(todoItem);
+  ///////////////////////////////////////////////////////////
+  todoListStore.updateTodo(todoItem);
+  ///////////////////////////////////////////////////////////
   router.push('/todos');
 };
 </script>
