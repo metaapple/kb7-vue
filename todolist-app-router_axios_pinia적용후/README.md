@@ -1,38 +1,20 @@
-# todolist-app-router
+<img width="2479" height="1401" alt="image" src="https://github.com/user-attachments/assets/408e77ec-9157-49ca-bdfa-720d29274345" />
 
-This template should help get you started developing with Vue 3 in Vite.
+<img width="2305" height="1312" alt="image" src="https://github.com/user-attachments/assets/d0bd3e7c-95a1-4ec5-b7c3-6459d4edda63" />
 
-## Recommended IDE Setup
+- 좁은 범위 → 넓은 범위
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+props/emit  →  provide/inject  →  pinia
+(로컬 전달)   (트리 공유)         (전역 상태관리)
 
-## Recommended Browser Setup
+<img width="2310" height="1297" alt="image" src="https://github.com/user-attachments/assets/1392789d-42b6-40c7-a1db-f7c5f8488cc0" />
+<img width="2463" height="1389" alt="image" src="https://github.com/user-attachments/assets/4b69a2cc-56a0-4345-8f6a-584608213759" />
+<img width="2484" height="1406" alt="image" src="https://github.com/user-attachments/assets/85de3eab-9d2b-48ec-851f-37874ddb6aad" />
+<img width="2485" height="1401" alt="image" src="https://github.com/user-attachments/assets/2be03419-b7e5-4ab4-b374-bb8c7b145237" />
+<img width="2475" height="1397" alt="image" src="https://github.com/user-attachments/assets/cb24e78a-de93-4e87-877c-0fb79b8a94bb" />
+<img width="2477" height="1404" alt="image" src="https://github.com/user-attachments/assets/a6bcaf3c-f51d-4599-849c-564102a87b8a" />
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Project Setup
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
