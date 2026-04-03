@@ -35,7 +35,7 @@ const requestAPI2 = async () => {
   //원격으로 http를 연결할 때는 네트워크로 연결하므로 에러가 발생할 가능성이 크다.
   //에러 처리도 같이 해주면 좋음.
   //async~await인 경우에는 try~catch로 해주고
-  //then인 경우에는 catch만 붙여주면 됨.
+  //then인 경우에는 catch()만 붙여주면 됨.
   try {
     //에러 발생할 여지가 큰 코드를 넣어줌.
     let response = await axios.get(url);
