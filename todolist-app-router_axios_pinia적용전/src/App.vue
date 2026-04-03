@@ -25,23 +25,27 @@ const router = useRouter();
 //컴포넌트 시작시 axios로 받아와 todoList를 채워넣는 메서드
 //TodoList 목록을 조회합니다
 
-const fetchTodoList = async () => {
-  states.isLoading = true;
+//1. 컴포넌트 초기화될 때 json-server로 연결해서 전체 목록 가지고 와야함.
+//2. 백엔드 서버로 부터 가지고 온 목록을 todoList에 넣어주야함.
+//3. 화면에 todoList목록을 보일 것임.
 
+const fetchTodoList = async () => {
+  //axios필요함. --> import필요함.
   try {
-    const response = await axios.get(BASEURI);
-    if (response.status === 200) {
+    let response = await axios.get(BASEURI); //http통신(요청) --> http응답
+    if (response.status == 200) {
+      console.log(response.data); //콘솔에 찍어서 받은 데이터를 확인해주는 습관이 좋음.
+      //states.todoList에 데이터를 넣어주어야 화면에 나타남.
       states.todoList = response.data;
     } else {
-      alert('데이터 조회 실패');
+      console.log('데이터 전체 조회 실패');
     }
-  } catch (error) {
-    alert('에러발생 :' + error);
+  } catch (e) {
+    console.log('예상치 못한 에러가 발생함. 에러 정보는 ' + e);
   }
-  states.isLoading = false;
 };
 
-fetchTodoList();
+fetchTodoList(); //시작하자 함수를 호출하고 싶으면 바로 써주세요.!
 
 const addTodo = async ({ todo, desc }) => {
   states.isLoading = true;
@@ -103,6 +107,8 @@ const toggleDone = (id) => {
   let index = states.todoList.findIndex((todo) => todo.id === id);
   states.todoList[index].done = !states.todoList[index].done;
 };
+
+// App.vue 하위 컴포넌트 중 아무곳에서나 가지고 가서(inject, 주입해서) 사용할 수 있게 제공함.
 provide(
   'todoList',
   computed(() => states.todoList),

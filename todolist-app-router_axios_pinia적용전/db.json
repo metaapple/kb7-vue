@@ -23,24 +23,6 @@
       "todo": "4",
       "desc": "4",
       "done": false
-    },
-    {
-      "id": 1775117586810,
-      "todo": "7",
-      "desc": "7",
-      "done": false
-    },
-    {
-      "id": 1775117891132,
-      "todo": "test",
-      "desc": "test",
-      "done": false
-    },
-    {
-      "id": 1775117939610,
-      "todo": "test25",
-      "desc": "test2",
-      "done": true
     }
   ]
 }
