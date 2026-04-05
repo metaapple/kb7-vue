@@ -1,4 +1,4 @@
-# test-vue-app2
+# 단일 컴포넌트 라이브코드
 
 This template should help get you started developing with Vue 3 in Vite.
 
