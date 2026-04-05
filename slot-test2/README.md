@@ -1,4 +1,4 @@
-# slot-test2
+# slot 라이브코드
 
 This template should help get you started developing with Vue 3 in Vite.
 
