@@ -23,9 +23,10 @@
 import TodoItem from '@/pages/TodoItem.vue';
 import { useTodoListStore } from '@/stores/todoList.js';
 import { computed } from 'vue';
-
 const todoListStore = useTodoListStore();
 
-//computed()해주지 않으면, 변경된 것 반영되지 않음.
-const todoList = computed(() => todoListStore.states.todoList);
+//store에서 omputed()해주지 않으면, 변경된 것 반영되지 않음.
+//다른 컴포넌트에서 변수에 넣어주기 때문, 바로 출력하지 않고, 변수에 넣은 것을 다시 출력함.
+const todoList = computed(() => todoListStore.todoList); //todoListStore.todoList
+
 </script>
