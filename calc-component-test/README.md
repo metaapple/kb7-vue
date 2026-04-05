@@ -1,4 +1,4 @@
-# calc-component-test
+# 컴포지션 라이브코드
 
 This template should help get you started developing with Vue 3 in Vite.
 
