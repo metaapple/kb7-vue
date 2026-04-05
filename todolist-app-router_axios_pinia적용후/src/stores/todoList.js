@@ -46,7 +46,7 @@ export const useTodoListStore = defineStore("todoList", () => {
   fetchTodoList(); //시작하자 함수를 호출하고 싶으면 바로 써주세요.!
 
   const addTodo = async ({ todo, desc }) => {
-    isLoading = true;
+    states.isLoading = true;
 
     try {
       let payload = {
@@ -65,11 +65,11 @@ export const useTodoListStore = defineStore("todoList", () => {
     } catch (error) {
       alert("에러발생 :" + error);
     }
-    isLoading = false;
+    states.isLoading = false;
   };
 
   const updateTodo = async ({ id, todo, desc, done }) => {
-    isLoading = true;
+    states.isLoading = true;
 
     try {
       let payload = { id, todo, desc, done };
@@ -82,11 +82,11 @@ export const useTodoListStore = defineStore("todoList", () => {
     } catch (error) {
       alert("에러발생 :" + error);
     }
-    isLoading = false;
+    states.isLoading = false;
   };
 
   const deleteTodo = async (id) => {
-    isLoading = true;
+    states.isLoading = true;
     try {
       const response = await axios.delete(BASEURI + "/" + id);
       if (response.status === 200) {
@@ -98,7 +98,7 @@ export const useTodoListStore = defineStore("todoList", () => {
     } catch (error) {
       alert("에러발생 :" + error);
     }
-    isLoading = false;
+    states.isLoading = false;
   };
 
   ////////////////////////////////////////////
@@ -119,9 +119,6 @@ export const useTodoListStore = defineStore("todoList", () => {
   };
   ////////////////////////////////////////////
 
-  let todoList = computed(() => states.todoList);
-  let isLoading = computed(() => states.isLoading);
-
   return {
     states,
     fetchTodoList,
@@ -129,7 +126,5 @@ export const useTodoListStore = defineStore("todoList", () => {
     updateTodo,
     deleteTodo,
     toggleDone,
-    todoList,
-    isLoading,
   };
 });
