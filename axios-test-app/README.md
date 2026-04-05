@@ -1,3 +1,4 @@
+# axios 적용후
 🍏 json-server  
 <img width="634" height="49" alt="019" src="https://github.com/user-attachments/assets/4c4058fd-818f-4fec-9cd7-56a80e1cdd91" />
 <img width="2195" height="628" alt="020" src="https://github.com/user-attachments/assets/e182c962-2e99-4eba-8d64-cffd14c6f659" />
