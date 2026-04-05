@@ -9,6 +9,7 @@
   <div class="row">
     <div class="col">
       <ul class="list-group">
+      <!-- v-for="todoItem in todoListStore.states.todoList" -->
         <TodoItem
           v-for="todoItem in todoListStore.states.todoList"
           :key="todoItem.id"

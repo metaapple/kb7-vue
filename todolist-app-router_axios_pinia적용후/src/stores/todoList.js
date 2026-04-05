@@ -50,7 +50,7 @@ export const useTodoListStore = defineStore("todoList", () => {
 
     try {
       let payload = {
-        id: new Date().getTime(),
+        id: String(new Date().getTime()),
         todo,
         desc,
         done: false,
