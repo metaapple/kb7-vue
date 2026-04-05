@@ -1,3 +1,4 @@
+# router+axios+pinia 적용후
 <img width="2479" height="1401" alt="image" src="https://github.com/user-attachments/assets/408e77ec-9157-49ca-bdfa-720d29274345" />
 
 <img width="2305" height="1312" alt="image" src="https://github.com/user-attachments/assets/d0bd3e7c-95a1-4ec5-b7c3-6459d4edda63" />
