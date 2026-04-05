@@ -5,7 +5,11 @@
 
 <button @click="addTodoHandler">추가</button> <hr />
 <ul>
-<li v-for="todoItem in todoList">
+<li v-for="todoItem in todoListStore.todoList">
+<!-- <li v-for="todoItem in todoList"> -->
+
+<!-- 권장(헷갈림이 제일 없음) -->
+<!-- <li v-for="todoItem in todoListStore.stats.todoList"> -->
 <span style="cursor: pointer" @click="toggleDone(todoItem.id)">
 {{ todoItem.todo }} {{ todoItem.done ? '(완료)' : '' }}
 </span> &nbsp;&nbsp;&nbsp;
@@ -22,6 +26,8 @@
   const todo = ref('');
   const todoListStore = useTodoListStore();
   const { todoList, addTodo, deleteTodo, toggleDone, doneCount } = todoListStore;
+
+  //변수에 넣었다가 출력하는 경우에는 computed()해줌. --> 바로 출력하는 경우 필요없음.
   const doneCount2 = computed(() => todoListStore.doneCount); //todoListStore.doneCount;
 
   const addTodoHandler = () => {
