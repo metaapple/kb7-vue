@@ -1,3 +1,4 @@
+#  router 적용후 
 🍎 <b>프로젝트 실행 영상</b> : https://youtu.be/a2EuA_f9jts
 
 <img width="1104" height="631" alt="스크린샷 2026-03-31 20 31 22" src="https://github.com/user-attachments/assets/f2a1e776-b2b4-4493-b625-87ca3b649d70" />
