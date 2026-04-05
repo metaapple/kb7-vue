@@ -43,7 +43,7 @@ export const useTodoListStore = defineStore("todoList", () => {
     }
   };
 
-  fetchTodoList(); //시작하자 함수를 호출하고 싶으면 바로 써주세요.!
+  //fetchTodoList(); //시작하자 함수를 호출하고 싶으면 바로 써주세요.!
 
   const addTodo = async ({ todo, desc }) => {
     states.isLoading = true;
