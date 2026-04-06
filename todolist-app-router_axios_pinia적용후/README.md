@@ -26,6 +26,7 @@ props/emit  →  provide/inject  →  pinia
 <hr>
 # 경로확인
 <img width="1868" height="1540" alt="image" src="https://github.com/user-attachments/assets/3a21c721-fdc0-4246-a1b3-d5d9a073d532" />
+
 <br>
 <hr>
 # 반드시 리턴해주어야 외부 컴포넌트에서 사용 가능
