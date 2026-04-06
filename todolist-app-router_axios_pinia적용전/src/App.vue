@@ -52,7 +52,7 @@ const addTodo = async ({ todo, desc }) => {
 
   try {
     let payload = {
-      id: new Date().getTime(),
+      id: String(new Date().getTime()),
       todo,
       desc,
       done: false,
@@ -103,10 +103,21 @@ const deleteTodo = async (id) => {
   states.isLoading = false;
 };
 
-const toggleDone = (id) => {
-  let index = states.todoList.findIndex((todo) => todo.id === id);
-  states.todoList[index].done = !states.todoList[index].done;
-};
+  const toggleDone = async (id) => {
+    try {
+      let todo = states.todoList.find((todo) => todo.id === id);
+      todo.done = !todo.done;
+      const payload = todo;
+      const response = await axios.put(BASEURI + "/" + id, payload);
+      if (response.status == 200) {
+        await fetchTodoList();
+      } else {
+        alert("토글 변경 수행 중 에러 발생함.");
+      }
+    } catch (e) {
+      alert("토글 변경 수행 중 예상치 못했던 에러 발생함. ");
+    }
+  };
 
 // App.vue 하위 컴포넌트 중 아무곳에서나 가지고 가서(inject, 주입해서) 사용할 수 있게 제공함.
 provide(
