@@ -16,7 +16,7 @@ const changeClassMap = {
 <template>
   <div>
     <div class="text-secondary small mb-1">{{ label }}</div>
-    <div class="fs-3 fw-semibold text-dark">{{ value }}</div>
+    <div class="fs-3 fw-semibold text-body">{{ value }}</div>
     <div v-if="change" :class="['small', changeClassMap[changeType] || changeClassMap.neutral]">
       {{ change }}
     </div>

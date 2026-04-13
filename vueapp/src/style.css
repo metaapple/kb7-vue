@@ -1,21 +1,61 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'tailwindcss';
 
+/* MJ 벚꽃: 단말에 설치된 경우 local()로 로드, 웹에서는 public/fonts/MJ벚꽃.woff2(또는 .woff)를 넣으면 전 구간 적용 */
+@font-face {
+  font-family: 'MJ벚꽃';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('MJ 벚꽃'),
+    local('MJ벚꽃'),
+    local('MJ 벚꽃아래서'),
+    local('MJ벚꽃아래서'),
+    local('MJ Graphict10'),
+    local('MJ Graphict 10'),
+    url('/fonts/MJ벚꽃.woff2') format('woff2'),
+    url('/fonts/MJ벚꽃.woff') format('woff');
+}
+
+@theme {
+  --font-sans: 'MJ벚꽃', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', system-ui, sans-serif;
+}
+
 :root {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --bs-font-sans-serif: 'MJ벚꽃', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', system-ui, sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  font-family: var(--bs-body-font-family);
   color: #111827;
   background: #f8fafc;
+  /* 대시보드·구분선 — 헤더 그라데이션과 동일 계열 */
+  --app-theme-violet: #7c3aed;
+  --app-theme-pink: #db2777;
+  --app-theme-orange: #f97316;
+  --app-line: rgba(124, 58, 237, 0.2);
+  --app-line-strong: rgba(124, 58, 237, 0.32);
+  --app-surface-glass: rgba(255, 255, 255, 0.72);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: var(--bs-body-font-family);
   background: linear-gradient(135deg, #f5f3ff 0%, #fff1f2 50%, #fff7ed 100%);
 }
 
 #app {
   min-height: 100vh;
+  font-family: inherit;
+}
+
+button,
+input,
+select,
+textarea,
+.btn {
+  font-family: inherit;
 }
 
 .card-soft {
@@ -57,8 +97,235 @@ body {
 
 .table-grid {
   display: grid;
-  grid-template-columns: 110px 120px 1fr 140px 56px;
+  grid-template-columns: 100px 36px 128px 1fr 120px 108px;
   gap: 1rem;
+}
+
+html.app-dark body,
+html[data-bs-theme='dark'] body {
+  color: #e5e7eb;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 45%, #312e81 100%);
+  --app-line: rgba(167, 139, 250, 0.26);
+  --app-line-strong: rgba(196, 181, 253, 0.38);
+  --app-surface-glass: rgba(30, 41, 59, 0.75);
+}
+
+html[data-bs-theme='dark'] .card-soft {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+html[data-bs-theme='dark'] .dashboard-header {
+  background: linear-gradient(90deg, #4c1d95 0%, #831843 50%, #9a3412 100%);
+}
+
+/*
+ * 다크 모드에서 Bootstrap이 제목에 var(--bs-heading-color)를 주면
+ * 보라/분홍 헤더 위에서 거의 검정처럼 보일 수 있음 → 제목·부제만 흰색 고정
+ */
+.dashboard-header h1,
+.dashboard-header h2,
+.dashboard-header h3,
+.dashboard-header .h1,
+.dashboard-header .h2,
+.dashboard-header .h3,
+.dashboard-header .dashboard-header-tagline {
+  color: #fff !important;
+}
+
+.dashboard-header .dashboard-header-tagline {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* outline 버튼 글자도 헤더 위에서 항상 밝게 */
+.dashboard-header .btn-outline-light {
+  color: #fff !important;
+}
+
+/* —— 돈 관리(대시보드) 페이지: 모던 구분선 + 차트/표 톤 —— */
+.dash-hairline-b {
+  border-bottom: 1px solid var(--app-line);
+}
+
+.dash-hairline-t {
+  border-top: 1px solid var(--app-line);
+}
+
+.dashboard-page main {
+  position: relative;
+}
+
+.dashboard-page .dashboard-section-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--app-theme-violet);
+  margin-bottom: 0.35rem;
+}
+
+html[data-bs-theme='dark'] .dashboard-page .dashboard-section-eyebrow {
+  color: #c4b5fd;
+}
+
+.dashboard-page .dashboard-section-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(115deg, #4c1d95 0%, #9d174d 45%, #c2410c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html[data-bs-theme='dark'] .dashboard-page .dashboard-section-title {
+  background: linear-gradient(115deg, #e9d5ff 0%, #fbcfe8 50%, #fed7aa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dashboard-page .dashboard-brand-icon {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-page .dashboard-brand-emoji {
+  font-size: clamp(2.75rem, 6vw, 3.5rem);
+  line-height: 1;
+}
+
+.dashboard-page .dashboard-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.35), 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-page .metric-icon {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 1.15rem;
+}
+
+.dashboard-page .dash-inset-panel {
+  border: 1px solid var(--app-line);
+  border-radius: 1.25rem;
+  background: var(--app-surface-glass);
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-page .dashboard-hero-ring {
+  width: clamp(7rem, 22vw, 10rem);
+  height: clamp(7rem, 22vw, 10rem);
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(124, 58, 237, 0.12), rgba(249, 115, 22, 0.1));
+  border: 2px solid var(--app-line-strong);
+  box-shadow: 0 20px 48px rgba(124, 58, 237, 0.12);
+}
+
+.dashboard-page .dashboard-hero-ring span {
+  font-size: clamp(3.25rem, 10vw, 4.5rem);
+  line-height: 1;
+}
+
+.dashboard-page .google-chart-box {
+  border-color: var(--app-line) !important;
+  background: var(--app-surface-glass) !important;
+  backdrop-filter: blur(8px);
+}
+
+.dashboard-page .transaction-list-root .border-bottom {
+  border-color: var(--app-line) !important;
+}
+
+.dashboard-page .table {
+  --bs-table-border-color: var(--app-line);
+}
+
+.dashboard-page .account-list-root thead.table-light th {
+  background: rgba(124, 58, 237, 0.06) !important;
+  border-color: var(--app-line) !important;
+  color: #475569;
+  font-weight: 600;
+}
+
+html[data-bs-theme='dark'] .dashboard-page .account-list-root thead.table-light th {
+  background: rgba(124, 58, 237, 0.15) !important;
+  color: #cbd5e1;
+}
+
+.dashboard-page .pagination .page-link {
+  color: var(--app-theme-violet);
+  border-color: var(--app-line);
+  background: transparent;
+}
+
+.dashboard-page .pagination .page-item.active .page-link {
+  color: #fff !important;
+  border-color: transparent;
+  background: linear-gradient(120deg, var(--app-theme-violet), var(--app-theme-pink) 55%, var(--app-theme-orange));
+}
+
+html[data-bs-theme='dark'] .dashboard-page .pagination .page-link {
+  color: #e9d5ff;
+}
+
+.dashboard-page .dashboard-cta-add {
+  border: 0;
+  color: #fff !important;
+  background: linear-gradient(118deg, var(--app-theme-violet), var(--app-theme-pink) 50%, var(--app-theme-orange));
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.dashboard-page .dashboard-cta-add:hover:not(:disabled) {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(124, 58, 237, 0.35) !important;
+}
+
+.dashboard-page .dashboard-cta-add:disabled {
+  opacity: 0.55;
+  transform: none;
+}
+
+.dashboard-page .dashboard-metric-card {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.dashboard-page .dashboard-metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.1) !important;
+}
+
+html[data-bs-theme='dark'] .dashboard-page .dashboard-metric-card:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35) !important;
+}
+
+.dashboard-page .dashboard-chart-card,
+.dashboard-page .dashboard-tx-card,
+.dashboard-page .dashboard-spotlight-card {
+  transition: box-shadow 0.25s ease;
+}
+
+.letter-tight {
+  letter-spacing: -0.025em;
 }
 
 @media (max-width: 768px) {

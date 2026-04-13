@@ -1,0 +1,587 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "데모 사용자",
+      "email": "demo@example.com",
+      "password": "demo1234",
+      "avatarUrl": ""
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "userId": "1",
+      "date": "2026-04-12",
+      "category": "부수입",
+      "description": "프리랜스 정산 💼",
+      "amount": 480000,
+      "type": "income"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "date": "2026-04-11",
+      "category": "식비",
+      "description": "브런치 카페 ☕",
+      "amount": 42000,
+      "type": "expense"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "date": "2026-04-10",
+      "category": "급여",
+      "description": "월급 💰",
+      "amount": 3000000,
+      "type": "income"
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "date": "2026-04-10",
+      "category": "문화생활",
+      "description": "콘서트 티켓 🎤",
+      "amount": 110000,
+      "type": "expense"
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "date": "2026-04-09",
+      "category": "식비",
+      "description": "저녁 회식 🍻",
+      "amount": 45000,
+      "type": "expense"
+    },
+    {
+      "id": "6",
+      "userId": "1",
+      "date": "2026-04-09",
+      "category": "교통비",
+      "description": "택시 🚕",
+      "amount": 18000,
+      "type": "expense"
+    },
+    {
+      "id": "7",
+      "userId": "1",
+      "date": "2026-04-08",
+      "category": "교통비",
+      "description": "지하철 충전 🚇",
+      "amount": 50000,
+      "type": "expense"
+    },
+    {
+      "id": "8",
+      "userId": "1",
+      "date": "2026-04-08",
+      "category": "쇼핑",
+      "description": "생활용품 🧴",
+      "amount": 67000,
+      "type": "expense"
+    },
+    {
+      "id": "9",
+      "userId": "1",
+      "date": "2026-04-07",
+      "category": "문화생활",
+      "description": "영화관람 🎬",
+      "amount": 15000,
+      "type": "expense"
+    },
+    {
+      "id": "10",
+      "userId": "1",
+      "date": "2026-04-07",
+      "category": "용돈",
+      "description": "용돈 받음 🧧",
+      "amount": 200000,
+      "type": "income"
+    },
+    {
+      "id": "11",
+      "userId": "1",
+      "date": "2026-04-06",
+      "category": "의료",
+      "description": "약국 💊",
+      "amount": 24000,
+      "type": "expense"
+    },
+    {
+      "id": "12",
+      "userId": "1",
+      "date": "2026-04-06",
+      "category": "식비",
+      "description": "편의점 🏪",
+      "amount": 12000,
+      "type": "expense"
+    },
+    {
+      "id": "13",
+      "userId": "1",
+      "date": "2026-04-05",
+      "category": "식비",
+      "description": "마트 장보기 🛒",
+      "amount": 120000,
+      "type": "expense"
+    },
+    {
+      "id": "14",
+      "userId": "1",
+      "date": "2026-04-04",
+      "category": "기타",
+      "description": "구독 서비스 📺",
+      "amount": 14900,
+      "type": "expense"
+    },
+    {
+      "id": "15",
+      "userId": "1",
+      "date": "2026-04-03",
+      "category": "교통비",
+      "description": "고속버스 🚌",
+      "amount": 35000,
+      "type": "expense"
+    },
+    {
+      "id": "16",
+      "userId": "1",
+      "date": "2026-04-02",
+      "category": "쇼핑",
+      "description": "의류 👕",
+      "amount": 189000,
+      "type": "expense"
+    },
+    {
+      "id": "17",
+      "userId": "1",
+      "date": "2026-04-01",
+      "category": "부수입",
+      "description": "중고 거래 💸",
+      "amount": 85000,
+      "type": "income"
+    },
+    {
+      "id": "18",
+      "userId": "1",
+      "date": "2026-03-30",
+      "category": "식비",
+      "description": "치킨 배달 🍗",
+      "amount": 32000,
+      "type": "expense"
+    },
+    {
+      "id": "19",
+      "userId": "1",
+      "date": "2026-03-28",
+      "category": "문화생활",
+      "description": "독서모임 📚",
+      "amount": 15000,
+      "type": "expense"
+    },
+    {
+      "id": "20",
+      "userId": "1",
+      "date": "2026-03-27",
+      "category": "교통비",
+      "description": "주차비 🅿️",
+      "amount": 6000,
+      "type": "expense"
+    },
+    {
+      "id": "21",
+      "userId": "1",
+      "date": "2026-03-25",
+      "category": "급여",
+      "description": "월급 💰",
+      "amount": 3000000,
+      "type": "income"
+    },
+    {
+      "id": "22",
+      "userId": "1",
+      "date": "2026-03-24",
+      "category": "식비",
+      "description": "회사 근처 점심 🍜",
+      "amount": 11000,
+      "type": "expense"
+    },
+    {
+      "id": "23",
+      "userId": "1",
+      "date": "2026-03-22",
+      "category": "쇼핑",
+      "description": "전자기기 액세서리 🔌",
+      "amount": 45000,
+      "type": "expense"
+    },
+    {
+      "id": "24",
+      "userId": "1",
+      "date": "2026-03-20",
+      "category": "의료",
+      "description": "치과 검진 🦷",
+      "amount": 120000,
+      "type": "expense"
+    },
+    {
+      "id": "25",
+      "userId": "1",
+      "date": "2026-03-18",
+      "category": "기타",
+      "description": "경조사 🎁",
+      "amount": 100000,
+      "type": "expense"
+    },
+    {
+      "id": "26",
+      "userId": "1",
+      "date": "2026-03-15",
+      "category": "문화생활",
+      "description": "전시회 🖼️",
+      "amount": 20000,
+      "type": "expense"
+    },
+    {
+      "id": "27",
+      "userId": "1",
+      "date": "2026-03-12",
+      "category": "식비",
+      "description": "주말 외식 🥘",
+      "amount": 78000,
+      "type": "expense"
+    },
+    {
+      "id": "28",
+      "userId": "1",
+      "date": "2026-03-10",
+      "category": "교통비",
+      "description": "기름값 ⛽",
+      "amount": 95000,
+      "type": "expense"
+    },
+    {
+      "id": "29",
+      "userId": "1",
+      "date": "2026-03-08",
+      "category": "용돈",
+      "description": "용돈 🧧",
+      "amount": 150000,
+      "type": "income"
+    },
+    {
+      "id": "30",
+      "userId": "1",
+      "date": "2026-03-05",
+      "category": "식비",
+      "description": "베이커리 🥐",
+      "amount": 28000,
+      "type": "expense"
+    },
+    {
+      "id": "31",
+      "userId": "1",
+      "date": "2026-03-01",
+      "category": "급여",
+      "description": "월급 💰",
+      "amount": 2950000,
+      "type": "income"
+    },
+    {
+      "id": "32",
+      "userId": "1",
+      "date": "2026-02-27",
+      "category": "쇼핑",
+      "description": "화장품 💄",
+      "amount": 89000,
+      "type": "expense"
+    },
+    {
+      "id": "33",
+      "userId": "1",
+      "date": "2026-02-22",
+      "category": "식비",
+      "description": "한우 BBQ 🥩",
+      "amount": 156000,
+      "type": "expense"
+    },
+    {
+      "id": "34",
+      "userId": "1",
+      "date": "2026-02-18",
+      "category": "교통비",
+      "description": "철도 패스 🚄",
+      "amount": 72000,
+      "type": "expense"
+    },
+    {
+      "id": "35",
+      "userId": "1",
+      "date": "2026-02-14",
+      "category": "문화생활",
+      "description": "발렌타인 케이크 🍰",
+      "amount": 45000,
+      "type": "expense"
+    },
+    {
+      "id": "36",
+      "userId": "1",
+      "date": "2026-02-10",
+      "category": "급여",
+      "description": "월급 💰",
+      "amount": 2950000,
+      "type": "income"
+    },
+    {
+      "id": "37",
+      "userId": "1",
+      "date": "2026-02-05",
+      "category": "의료",
+      "description": "안과 👓",
+      "amount": 55000,
+      "type": "expense"
+    },
+    {
+      "id": "38",
+      "userId": "1",
+      "date": "2026-02-01",
+      "category": "기타",
+      "description": "헬스장 💪",
+      "amount": 80000,
+      "type": "expense"
+    },
+    {
+      "id": "39",
+      "userId": "1",
+      "date": "2026-01-28",
+      "category": "식비",
+      "description": "샐러드 도시락 🥗",
+      "amount": 13000,
+      "type": "expense"
+    },
+    {
+      "id": "40",
+      "userId": "1",
+      "date": "2026-01-25",
+      "category": "급여",
+      "description": "월급 💰",
+      "amount": 2900000,
+      "type": "income"
+    },
+    {
+      "id": "41",
+      "userId": "1",
+      "date": "2026-01-20",
+      "category": "교통비",
+      "description": "렌터카 🚗",
+      "amount": 220000,
+      "type": "expense"
+    },
+    {
+      "id": "42",
+      "userId": "1",
+      "date": "2026-01-15",
+      "category": "쇼핑",
+      "description": "가구 조명 💡",
+      "amount": 134000,
+      "type": "expense"
+    },
+    {
+      "id": "43",
+      "userId": "1",
+      "date": "2026-01-10",
+      "category": "식비",
+      "description": "설 선물세트 🎁",
+      "amount": 210000,
+      "type": "expense"
+    },
+    {
+      "id": "44",
+      "userId": "1",
+      "date": "2026-01-05",
+      "category": "부수입",
+      "description": "강의료 📖",
+      "amount": 400000,
+      "type": "income"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "1",
+      "userId": "1",
+      "bankName": "KB국민",
+      "alias": "생활비 통장",
+      "numberMasked": "****-12-****-3401",
+      "balance": 1240000
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "bankName": "신한",
+      "alias": "급여 전용",
+      "numberMasked": "****-45-****-8821",
+      "balance": 3020000
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "bankName": "우리",
+      "alias": "저축통장",
+      "numberMasked": "****-09-****-1102",
+      "balance": 850000
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "bankName": "하나",
+      "alias": "외화 USD",
+      "numberMasked": "****-77-****-0099",
+      "balance": 420000
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "bankName": "NH농협",
+      "alias": "예금",
+      "numberMasked": "****-33-****-5510",
+      "balance": 2100000
+    },
+    {
+      "id": "6",
+      "userId": "1",
+      "bankName": "IBK기업",
+      "alias": "사업자",
+      "numberMasked": "****-88-****-2233",
+      "balance": 560000
+    },
+    {
+      "id": "7",
+      "userId": "1",
+      "bankName": "카카오뱅크",
+      "alias": "모임통장",
+      "numberMasked": "****-01-****-9900",
+      "balance": 128500
+    },
+    {
+      "id": "8",
+      "userId": "1",
+      "bankName": "토스뱅크",
+      "alias": "비상금",
+      "numberMasked": "****-66-****-4412",
+      "balance": 300000
+    },
+    {
+      "id": "9",
+      "userId": "1",
+      "bankName": "케이뱅크",
+      "alias": "청년적금",
+      "numberMasked": "****-22-****-7788",
+      "balance": 720000
+    },
+    {
+      "id": "10",
+      "userId": "1",
+      "bankName": "SC제일",
+      "alias": "주택청약",
+      "numberMasked": "****-11-****-3344",
+      "balance": 15000000
+    },
+    {
+      "id": "11",
+      "userId": "1",
+      "bankName": "KB국민",
+      "alias": "CMA",
+      "numberMasked": "****-55-****-1200",
+      "balance": 890000
+    },
+    {
+      "id": "12",
+      "userId": "1",
+      "bankName": "신한",
+      "alias": "마이너스 통장",
+      "numberMasked": "****-90-****-6611",
+      "balance": -120000
+    },
+    {
+      "id": "13",
+      "userId": "1",
+      "bankName": "우리",
+      "alias": "페이 연동",
+      "numberMasked": "****-44-****-9033",
+      "balance": 45000
+    },
+    {
+      "id": "14",
+      "userId": "1",
+      "bankName": "하나",
+      "alias": "적금 만기",
+      "numberMasked": "****-23-****-8001",
+      "balance": 5000000
+    },
+    {
+      "id": "15",
+      "userId": "1",
+      "bankName": "NH농협",
+      "alias": "체크카드",
+      "numberMasked": "****-67-****-1022",
+      "balance": 78000
+    },
+    {
+      "id": "16",
+      "userId": "1",
+      "bankName": "카카오뱅크",
+      "alias": "입출금",
+      "numberMasked": "****-02-****-3145",
+      "balance": 234000
+    },
+    {
+      "id": "17",
+      "userId": "1",
+      "bankName": "토스뱅크",
+      "alias": "적금",
+      "numberMasked": "****-88-****-7650",
+      "balance": 1200000
+    },
+    {
+      "id": "18",
+      "userId": "1",
+      "bankName": "IBK기업",
+      "alias": "법인 보통",
+      "numberMasked": "****-19-****-4400",
+      "balance": 8900000
+    }
+  ],
+  "gameResults": [
+    {
+      "id": "1",
+      "userId": "1",
+      "tier": 1,
+      "correct": 4,
+      "total": 5,
+      "xpTotal": 112,
+      "level": 2,
+      "createdAt": "2026-04-10T14:20:00.000Z"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "tier": 2,
+      "correct": 3,
+      "total": 5,
+      "xpTotal": 196,
+      "level": 2,
+      "createdAt": "2026-04-11T09:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "tier": 2,
+      "correct": 5,
+      "total": 5,
+      "xpTotal": 252,
+      "level": 3,
+      "createdAt": "2026-04-12T08:15:00.000Z"
+    }
+  ]
+}

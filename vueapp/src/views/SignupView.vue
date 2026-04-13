@@ -13,8 +13,9 @@ const form = reactive({
   confirmPassword: '',
 })
 const error = ref('')
+const submitting = ref(false)
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   error.value = ''
 
   if (form.password !== form.confirmPassword) {
@@ -27,13 +28,17 @@ const handleSubmit = () => {
     return
   }
 
-  const result = authStore.signup(form.name, form.email, form.password)
-  if (!result.ok) {
-    error.value = result.message
-    return
+  submitting.value = true
+  try {
+    const result = await authStore.signup(form.name, form.email, form.password)
+    if (!result.ok) {
+      error.value = result.message
+      return
+    }
+    router.push('/dashboard')
+  } finally {
+    submitting.value = false
   }
-
-  router.push('/dashboard')
 }
 </script>
 
@@ -72,9 +77,9 @@ const handleSubmit = () => {
 
           <div v-if="error" class="alert alert-danger rounded-4 mt-3 mb-0">{{ error }}</div>
 
-          <button class="btn btn-lg text-white w-100 rounded-4 shadow-sm mt-4"
-            style="background:linear-gradient(90deg,#2563eb,#14b8a6)" @click="handleSubmit">
-            <i class="bi bi-person-check me-2"></i>회원가입
+          <button class="btn btn-lg text-white w-100 rounded-4 shadow-sm mt-4" type="button"
+            style="background:linear-gradient(90deg,#2563eb,#14b8a6)" :disabled="submitting" @click="handleSubmit">
+            <i class="bi bi-person-check me-2"></i>{{ submitting ? '처리 중…' : '회원가입' }}
           </button>
 
           <div class="text-center mt-4">

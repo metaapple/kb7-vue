@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Git: Push origin (kb7-vue)",
+      "type": "shell",
+      "command": "git push origin main",
+      "options": {
+        "cwd": "${workspaceFolder}/.."
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Git: Push kb-cursor (vueapp만)",
+      "type": "shell",
+      "command": "bash scripts/push-kb-cursor.sh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Git: Status (저장소 루트)",
+      "type": "shell",
+      "command": "git status -sb && git remote -v",
+      "options": {
+        "cwd": "${workspaceFolder}/.."
+      },
+      "problemMatcher": []
+    }
+  ]
+}

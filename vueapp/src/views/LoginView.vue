@@ -11,15 +11,21 @@ const form = reactive({
   password: '',
 })
 const error = ref('')
+const submitting = ref(false)
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   error.value = ''
-  const result = authStore.login(form.email, form.password)
-  if (!result.ok) {
-    error.value = result.message
-    return
+  submitting.value = true
+  try {
+    const result = await authStore.login(form.email, form.password)
+    if (!result.ok) {
+      error.value = result.message
+      return
+    }
+    router.push('/dashboard')
+  } finally {
+    submitting.value = false
   }
-  router.push('/dashboard')
 }
 </script>
 
@@ -49,9 +55,9 @@ const handleSubmit = () => {
 
           <div v-if="error" class="alert alert-danger rounded-4">{{ error }}</div>
 
-          <button class="btn btn-lg text-white w-100 rounded-4 shadow-sm"
-            style="background:linear-gradient(90deg,#7c3aed,#ec4899)" @click="handleSubmit">
-            <i class="bi bi-box-arrow-in-right me-2"></i>로그인
+          <button class="btn btn-lg text-white w-100 rounded-4 shadow-sm" type="button"
+            style="background:linear-gradient(90deg,#7c3aed,#ec4899)" :disabled="submitting" @click="handleSubmit">
+            <i class="bi bi-box-arrow-in-right me-2"></i>{{ submitting ? '처리 중…' : '로그인' }}
           </button>
 
           <div class="text-center mt-4">
