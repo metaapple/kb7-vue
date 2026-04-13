@@ -1,40 +1,50 @@
-# Vue 3 가계부 앱
+# JSON Server and db.json Documentation
 
-원본 React/TSX 프로젝트를 아래 스택으로 재구성한 버전입니다.
+This document provides an overview of how to utilize JSON Server alongside your Vue.js application. Below, you will find detailed information about setting up the JSON Server, the structure of the `db.json` file, and the relationship between your Vue app and the JSON server.
 
-- Vue 3
-- Composition API
-- ECMAScript Modules
-- Pinia
-- Vue Router
-- Tailwind CSS
-- Bootstrap 5
+## JSON Server Setup
 
-## 설치
+1. **Installation**: To install JSON Server, run the following command:
+   ```bash
+   npm install -g json-server
+   ```
+2. **Creating db.json**: You need a `db.json` file to serve your data. Create this file in the root of your project.
+3. **Running the server**: Start the JSON Server with:
+   ```bash
+   json-server --watch db.json
+   ```
+   By default, it runs on `http://localhost:3000`.
 
-```bash
-npm install
-npm run dev
+## db.json Structure
+Here’s an example of how a `db.json` file might look:
+```json
+{
+  "posts": [
+    { "id": 1, "title": "Post 1", "author": "Author 1" },
+    { "id": 2, "title": "Post 2", "author": "Author 2" }
+  ],
+  "comments": [
+    { "id": 1, "body": "Comment 1", "postId": 1 },
+    { "id": 2, "body": "Comment 2", "postId": 1 }
+  ]
+}
 ```
+This JSON structure allows for multiple resources to be accessed via RESTful APIs.
 
-## 주요 구조
+## Relationship Between Vue App and JSON Server
 
-```text
-src/
-├─ components/
-├─ router/
-├─ stores/
-├─ views/
-├─ App.vue
-├─ main.js
-└─ style.css
-```
+The Vue app interacts with the JSON server through HTTP requests. Here’s a diagram showing this relationship:
 
-## 기능
+```plaintext
++----------------+     GET/POST/DELETE     +----------------+ 
+|    Vue App     | <-------------------+  |  JSON Server   | 
+|   (Axios/HTTP) |                       |    (db.json)    | 
++----------------+                       +----------------+
+``` 
 
-- 로그인 / 회원가입
-- Pinia 기반 인증 상태 관리
-- 거래 추가 / 삭제
-- 수입 / 지출 / 잔액 요약
-- 월별 차트 표시
-- localStorage 기반 데이터 유지
+### Key Points
+- The Vue app uses Axios or Fetch API to make calls to the JSON server.
+- Resources represented in `db.json` can be directly accessed via endpoints like `http://localhost:3000/posts`.
+
+## Conclusion
+With these instructions, you should now be able to integrate JSON Server into your Vue application effectively. Happy coding!
